@@ -1,0 +1,9 @@
+       $query = "SELECT CompanyName, CompOwnerFN, CompOwnerLN, CompPhone, DepartmentName, stFirstName, stLastName, semester
+         FROM tbl_companies
+             INNER JOIN tbl_students ON tbl_companies.CompanyID = tbl_Students.stCompany
+                 INNER JOIN tbl_compdeps
+                   ON tbl_students.stCompany = tbl_compdeps.Company
+                     AND tbl_students.stDepartment = tbl_compdeps.DepID
+                     AND tbl_companies.CompanyID = tbl_compdeps.Company
+                 INNER JOIN semesters ON tbl_students.stSemester = semesters.SemesterID     
+          ORDER BY CompanyName";
